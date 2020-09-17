@@ -19,7 +19,7 @@ requirements:
 
 test:
   commands:
-    - kubelogin --version
+    - kubelogin --version  # [not win] DEBUG!
 
 about:
   home: https://github.com/Azure/kubelogin
