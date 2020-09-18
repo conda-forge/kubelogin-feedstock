@@ -20,7 +20,6 @@ requirements:
 test:
   commands:
     - kubelogin --version  # [not win]
-    - if not exist %PREFIX%\\bin\\kubelogin.exe exit 1  # [win]
 
 about:
   home: https://github.com/Azure/kubelogin
