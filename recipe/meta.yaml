@@ -10,7 +10,7 @@ source:
   sha256: eb18b44f76f6f87ca01153b1ab9bda59a853181c3bb1bd1758e5eba93bde17be
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -19,7 +19,7 @@ requirements:
 
 test:
   commands:
-    - kubelogin --version  # [not win]
+    - kubelogin --version
 
 about:
   home: https://github.com/Azure/kubelogin
