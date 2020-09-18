@@ -10,7 +10,7 @@ export GOBIN=$GOBIN
 
 go build -v -o ${target_gobin}${PKG_NAME}${target_goexe} -ldflags "$LDFLAGS"
 
-test -f $PREFIX/bin/go-licenses
+test -f "${PREFIX}/bin/kubelogin${target_goexe}"
 
 go get -v github.com/google/go-licenses
 $GOBIN/go-licenses save $SRC_DIR --save_path="$RECIPE_DIR/thirdparty_licenses/"
