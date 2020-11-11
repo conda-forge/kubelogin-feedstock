@@ -5,11 +5,13 @@ Home: https://github.com/Azure/kubelogin
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/kubelogin-feedstock/blob/master/LICENSE.txt)
 
 Summary: This is a client-go credential (exec) plugin implementing azure authentication. This plugin provides features that are not available in kubectl. It is supported on kubectl v1.11+
 
+Development: https://github.com/Azure/kubelogin
 
+Documentation: https://github.com/Azure/kubelogin
 
 Current build status
 ====================
