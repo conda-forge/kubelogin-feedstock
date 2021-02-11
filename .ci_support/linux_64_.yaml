@@ -12,3 +12,6 @@ target_gobin:
 - ${PREFIX}/bin/
 target_platform:
 - linux-64
+zip_keys:
+- - cdt_name
+  - docker_image
