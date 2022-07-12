@@ -15,6 +15,7 @@ build:
 requirements:
   build:
     - {{ compiler('go') }}
+    - go-licenses >=1.2.1
     - posix  # [win]
 
 test:
