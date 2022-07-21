@@ -1,5 +1,5 @@
 {% set name = "kubelogin" %}
-{% set version = "0.0.16" %}
+{% set version = "0.0.17" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Azure/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 86d674e5cf4dc2f45d2053c463935c256927169f4470a48b0c0c1dba12d2c0bd
+  sha256: 9e1743fcab103430a58104e0de9b6be072ba8d4e45c504495768d4db156f21a4
 
 build:
   number: 0
