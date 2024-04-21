@@ -14,6 +14,3 @@ test -f "${PREFIX}/bin/kubelogin${target_goexe}"
 
 go get -v github.com/google/go-licenses
 go-licenses save --ignore="gopkg.in/dnaeon/go-vcr.v3/" --save_path="$RECIPE_DIR/thirdparty_licenses/" $SRC_DIR
-
-# TODO: Remove when https://github.com/dnaeon/go-vcr/issues/86 is resolved
-curl -fksSL https://raw.githubusercontent.com/dnaeon/go-vcr/v3/LICENSE -o "$RECIPE_DIR/thirdparty_licenses/dnaeon-go-vcr.txt"
