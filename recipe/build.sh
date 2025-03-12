@@ -7,6 +7,7 @@ GOBIN=$(go env GOBIN)
 LDFLAGS="-X main.version=$PKG_VERSION -X main.goVersion=$GO_VERSION -X main.buildTime=$BUILD_TIME"
 
 export GOBIN=$GOBIN
+export GOTOOLCHAIN=local
 
 go build -v -o ${target_gobin}${PKG_NAME}${target_goexe} -ldflags "$LDFLAGS"
 
