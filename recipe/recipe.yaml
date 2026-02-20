@@ -13,7 +13,7 @@ source:
   target_directory: src
 
 build:
-  number: 2
+  number: 0
   script:
     - cd src
     - go-licenses save . --save_path ../library_licenses
