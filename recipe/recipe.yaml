@@ -23,8 +23,12 @@ build:
 
 requirements:
   build:
-    - ${{ compiler("go-cgo") }}
-    - ${{ compiler("c") }}
+    - if: osx
+      then:
+        - ${{ compiler("go-cgo") }}
+        - ${{ compiler("c") }}
+      else:
+        - ${{ compiler("go-nocgo") }}
     - go-licenses
 
 tests:
