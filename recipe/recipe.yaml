@@ -1,0 +1,40 @@
+schema_version: 1
+
+context:
+  name: kubelogin
+  version: 0.1.8
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/Azure/${{ name }}/archive/v${{ version }}.tar.gz
+  sha256: 395709279d1838bd1c2671ef233b1a2d654540720f12aa97d603cabd0a233024
+
+build:
+  number: 2
+
+requirements:
+  build:
+    - ${{ compiler('go') }}
+    - go-licenses >=1.2.1
+    - if: win
+      then: posix
+
+tests:
+  - script:
+      - kubelogin --version
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: This is a client-go credential (exec) plugin implementing azure authentication. This plugin provides features that are not available in kubectl. It is supported on kubectl v1.11+
+  homepage: https://github.com/Azure/kubelogin
+  repository: https://github.com/Azure/kubelogin
+  documentation: https://github.com/Azure/kubelogin
+
+extra:
+  recipe-maintainers:
+    - krisevans
+    - dhirschfeld
