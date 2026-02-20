@@ -23,6 +23,8 @@ build:
 
 requirements:
   build:
+    # macOS needs go-cgo because the keychain-based credential cache
+    # (pkg/internal/pop/cache/darwin.go) is gated by //go:build darwin && cgo
     - if: osx
       then:
         - ${{ compiler("go-cgo") }}
@@ -32,7 +34,9 @@ requirements:
     - go-licenses
 
 tests:
-  - script: kubelogin --version
+  - script:
+      - if: build_platform == target_platform
+        then: kubelogin --version
   - package_contents:
       bin:
         - kubelogin
