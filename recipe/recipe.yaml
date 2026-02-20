@@ -1,0 +1,63 @@
+schema_version: 1
+
+context:
+  version: "0.2.15"
+
+package:
+  name: kubelogin
+  version: ${{ version }}
+
+source:
+  url: https://github.com/Azure/kubelogin/archive/v${{ version }}.tar.gz
+  sha256: cd678ea802660211038398a8b3d1085d797286f1445d82d92c44e2332d91ce97
+  target_directory: src
+
+build:
+  number: 0
+  script:
+    - cd src
+    - go-licenses save . --save_path ../library_licenses
+    - if: unix
+      then: go build -v -o $PREFIX/bin/kubelogin -ldflags="-s -w"
+      else: go build -v -o %LIBRARY_BIN%\kubelogin.exe -ldflags="-s"
+
+requirements:
+  build:
+    # macOS needs go-cgo because the keychain-based credential cache
+    # (pkg/internal/pop/cache/darwin.go) is gated by //go:build darwin && cgo
+    - if: osx
+      then:
+        - ${{ compiler("go-cgo") }}
+        - ${{ compiler("c") }}
+      else:
+        - ${{ compiler("go-nocgo") }}
+    - go-licenses
+
+tests:
+  - script:
+      - if: build_platform == target_platform
+        then: kubelogin --version
+  - package_contents:
+      bin:
+        - kubelogin
+      strict: true
+
+about:
+  homepage: https://github.com/Azure/kubelogin
+  summary: A client-go credential (exec) plugin implementing azure authentication.
+  description: |
+    This is a client-go credential (exec) plugin implementing azure authentication.
+    This plugin provides features that are not available in kubectl.
+    It is supported on kubectl v1.11+
+  license: MIT
+  license_file:
+    - src/LICENSE
+    - library_licenses/
+  documentation: https://github.com/Azure/kubelogin
+  repository: https://github.com/Azure/kubelogin
+
+extra:
+  recipe-maintainers:
+    - krisevans
+    - dhirschfeld
+    - janjagusch
