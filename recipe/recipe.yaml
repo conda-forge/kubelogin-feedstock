@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.2.18"
+  version: "0.2.19"
 
 package:
   name: kubelogin
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/Azure/kubelogin/archive/v${{ version }}.tar.gz
-  sha256: 57cbc6085d3d648cb6c96019467d35844c03e3feb178b1f8c5b062f9ef59045f
+  sha256: 074b5e8ed993b7dada71ffd4917d28a0e5a59ff215e55b29287f4bdd8c40f4eb
   target_directory: src
 
 build:
